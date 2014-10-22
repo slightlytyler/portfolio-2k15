@@ -1,4 +1,7 @@
 _site
+
 .sass-cache
+.jekyll-assets-cache
+
 .ruby-gemset
 .ruby-version
