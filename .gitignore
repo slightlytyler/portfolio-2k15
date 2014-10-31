@@ -3,5 +3,7 @@ _site
 .sass-cache
 .jekyll-assets-cache
 
+_bower_components
+
 .ruby-gemset
 .ruby-version
