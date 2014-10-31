@@ -1,4 +1,4 @@
-// Smooth state config
+// Initialize smoothstate
 
 $(function() {
   'use strict';
@@ -54,4 +54,10 @@ $(function() {
         $('#exiting-content').removeClass('is-exiting');
       }
     }).data('smoothState');
+
+    $('header a').bind('click',function(e){
+      e.preventDefault();
+      var href = $(this).attr('href');
+      content.load(href);
+    });
 });
