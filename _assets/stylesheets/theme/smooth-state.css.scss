@@ -1,20 +1,19 @@
 .smooth-scene {
 
   .scene-element {
+    // Required styles
     position: relative;
-    width: 100vw;
     height: auto;
+    width: 100vw;
     overflow: hidden;
+
+    // Basic animation settings
     animation-duration: 1s;
-    background-color: #fafafa;
     transition-timing-function: ease-in;
     animation-fill-mode: both;
 
-    animation-name: slide-in;
-  }
-
-  &.is-exiting .scene-element {
-    position: absolute;
-    animation-name: slide-out;
+    // To animate an individual element you need to 
+    // add the base animation styles directly to the element
+    // then add the exit styles for &.is-exiting
   }
 } 
