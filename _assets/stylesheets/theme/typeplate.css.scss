@@ -24,11 +24,14 @@ $serif-boolean: true !default;
 
 $font-family: if($serif-boolean, serif, sans-serif) !default; // Non-font-face font-stack
 
+$base-unit: 12;
+
 $font-weight: normal !default;
-$line-height: 1.65 !default;
+$line-height: 2 !default;
 $font-size: 112.5 !default; // percentage value (16 * 112.5% = 18px)
-$font-base: 16 * ($font-size/100) !default; // converts our percentage to a pixel value
-$custom-font-family: false !default; // Custom font-face stack, if set will be added to the $base-font-family
+$font-base: $base-unit * ($font-size/100) !default; // converts our percentage to a pixel value
+$custom-font-family: "Raleway", sans-serif; // Custom font-face stack, if set will be added to the $base-font-family
+$sans-font-family: "Lato", sans-serif;
 $measure: $font-base * $line-height;
 
 
@@ -79,15 +82,15 @@ $icon-fonts: null !default;
 // $Variable $Typescale
 // -------------------------------------//
 
-$tera: 117 !default; // 117 = 18 × 6.5
-$giga: 90 !default; // 90 = 18 × 5
-$mega: 72 !default; // 72 = 18 × 4
-$alpha: 60 !default; // 60 = 18 × 3.3333
-$beta: 48 !default; // 48 = 18 × 2.6667
-$gamma: 36 !default; // 36 = 18 × 2
-$delta: 24 !default; // 24 = 18 × 1.3333
-$epsilon: 21 !default; // 21 = 18 × 1.1667
 $zeta: 18 !default; // 18 = 18 × 1
+$epsilon: round($zeta * 1.1667) !default; // 21 = 18 × 1.1667
+$delta: round($zeta * 1.3333) !default; // 24 = 18 × 1.3333
+$gamma: $zeta * 2 !default; // 36 = 18 × 2
+$beta: round($zeta * 2.6667) !default; // 48 = 18 × 2.6667
+$alpha: round($zeta * 3.3333) !default; // 60 = 18 × 3.3333
+$mega: $zeta * 4 !default; // 72 = 18 × 4
+$giga: $zeta * 5 !default; // 90 = 18 × 5
+$tera: round($zeta * 6.5) !default; // 117 = 18 × 6.5
 
 
 // $Variable $Typescale-Unit
@@ -701,6 +704,7 @@ h3,
 h4,
 h5,
 h6 {
+  font-family: $sans-font-family;
   color: $heading-color;
 }
 
