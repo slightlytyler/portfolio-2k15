@@ -28,7 +28,7 @@ $base-unit: 12;
 
 $font-weight: normal !default;
 $line-height: 2 !default;
-$font-size: 112.5 !default; // percentage value (16 * 112.5% = 18px)
+$font-size: $base-unit / 16 * 100 !default; // percentage value (16 * 112.5% = 18px)
 $font-base: $base-unit * ($font-size/100) !default; // converts our percentage to a pixel value
 
 $body-font-family: "Raleway", sans-serif;
