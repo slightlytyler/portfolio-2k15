@@ -30,8 +30,14 @@ $font-weight: normal !default;
 $line-height: 2 !default;
 $font-size: 112.5 !default; // percentage value (16 * 112.5% = 18px)
 $font-base: $base-unit * ($font-size/100) !default; // converts our percentage to a pixel value
-$custom-font-family: "Raleway", sans-serif; // Custom font-face stack, if set will be added to the $base-font-family
-$sans-font-family: "Lato", sans-serif;
+
+$body-font-family: "Raleway", sans-serif;
+$header-font-family: "Lato", sans-serif;
+$ui-font-family: $header-font-family;
+
+$custom-font-family: $body-font-family; // Custom font-face stack, if set will be added to the $base-font-family
+$sans-font-family: $header-font-family;
+
 $measure: $font-base * $line-height;
 
 
@@ -704,7 +710,6 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: $sans-font-family;
   color: $heading-color;
 }
 
