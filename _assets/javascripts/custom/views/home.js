@@ -1,6 +1,6 @@
 function homePage() {
   var prevHeight = 0;
-  var headerHeight = $('body > header').outerHeight();
+  var headerHeight = $('body > header nav.main').outerHeight();
 
   $('.home > *:not(.portfolio--list)').each(function () {
     var prevHeight = $(this).prev().outerHeight();
@@ -11,8 +11,7 @@ function homePage() {
 
   $('.portfolio--list').prevAll().each(function() {
     displaceHeight += $(this).outerHeight();
-    console.log(displaceHeight);
   });
 
-  $('.portfolio--list').css({ 'margin-top': displaceHeight });
+  $('.portfolio--list').css({ 'margin-top': (displaceHeight + headerHeight) });
 }

@@ -1,9 +1,13 @@
 nav.main {
+  position: fixed;
+  top: 0;
+  left: 0;
+  
   $nav-main--height: 6.3333rem;
+  width: 100%;
+  height: $nav-main--height;
 
   @include window-margin($window-margin);
-
-  height: $nav-main--height;
 
   background-color: $eggshell;
   @extend %seam;
