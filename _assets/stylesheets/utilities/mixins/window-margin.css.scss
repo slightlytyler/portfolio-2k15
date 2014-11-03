@@ -1,0 +1,6 @@
+@mixin window-margin($margin) {
+  padding: {
+    left: $margin;
+    right: $margin;
+  }
+}

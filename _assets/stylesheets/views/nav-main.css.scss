@@ -1,20 +1,20 @@
 nav.main {
   $nav-main--height: 6.3333rem;
 
-  @include outer-container($outer-width);
-  padding: {
-    left: 1.6666rem;
-    right: 1.6666rem;
-  }
-
-  display: flex;
-  flex-flow: row, nowrap;
-  justify-content: space-between;
+  @include window-margin($window-margin);
 
   height: $nav-main--height;
 
   background-color: $eggshell;
-  border-bottom: 1px solid $grey;
+  @extend %seam;
+
+  section.container {
+    @include outer-container($outer-width);
+
+    display: flex;
+    flex-flow: row, nowrap;
+    justify-content: space-between;
+  }
 
   a {
     margin-top: $nav-main--height / 2;

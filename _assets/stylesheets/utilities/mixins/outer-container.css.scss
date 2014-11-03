@@ -1,6 +1,7 @@
 @mixin outer-container($max-width: $outer-width) {
   *zoom: 1;
   max-width: $max-width;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
 }

@@ -2,6 +2,7 @@
   .hero-unit {
     background: $blue;
     background: linear-gradient(135deg, $blue-shade 0%, $blue-tint 100%);
+    @extend %seam;
 
     padding-top: 4rem;
 
@@ -11,6 +12,10 @@
     h3 {
       color: white;
       @extend %ui-shadow;
+    }
+
+    h1 {
+      margin-bottom: 1rem;
     }
 
     section.images {
@@ -39,6 +44,27 @@
         width: (6.0833 / 17.0833) * 100%;
         right: 14%;
       }
+    }
+  }
+
+  .about--blurb {
+    @include window-margin($window-margin);
+
+    padding: {
+      top: 1rem;
+      bottom: 1.6667rem;
+    }
+
+    background-color: $eggshell;
+    @extend %seam;
+
+    section.container {
+      @include outer-container($outer-width);
+    }
+
+    a { 
+      @extend a.ui;
+      font-weight: bold; 
     }
   }
 }
