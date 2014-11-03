@@ -1,8 +1,14 @@
 // Vendor style imports
 
+// Mixins
+@import "utilities/mixins/*";
+@import "utilities/placeholders/*";
+
 // Custom style imports
 @import "base/*";
 @import "components/*";
+@import "support/config";
 @import "support/color";
 @import "support/typeplate";
 @import "theme/*";
+@import "views/*"

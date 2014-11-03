@@ -1,0 +1,36 @@
+nav.main {
+  $nav-main--height: 6.3333rem;
+
+  @include outer-container($outer-width);
+  padding: {
+    left: 1.6666rem;
+    right: 1.6666rem;
+  }
+
+  display: flex;
+  flex-flow: row, nowrap;
+  justify-content: space-between;
+
+  height: $nav-main--height;
+
+  background-color: $eggshell;
+  border-bottom: 1px solid $grey;
+
+  a {
+    margin-top: $nav-main--height / 2;
+    transform: translateY(-50%);
+  }
+
+  a.drawer--icon {
+    height: 1.75rem;
+  }
+
+  a.logo {
+    height: 2.8333rem;
+  }
+
+  a.contact-icon{
+    height: 1.8333rem;
+  }
+
+}
