@@ -8,3 +8,7 @@
 //
 // Initialize on page load or fetch
 //= require custom/init
+// Components
+//
+// Views
+//= require custom/views/home

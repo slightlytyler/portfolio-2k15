@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gem 'jekyll'
 gem 'jekyll-assets'
 gem 'kramdown'
-gem "sass"
+gem 'sass', '3.4.5'
 
 
 # Development

@@ -3,4 +3,5 @@
 // placed here to be executed via smoothstate.
 
 function pageLoad() {
+  homePage();
 }

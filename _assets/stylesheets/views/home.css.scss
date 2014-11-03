@@ -1,5 +1,10 @@
 .home {
+  & > *:not(.portfolio--list){
+    position: fixed;
+  }
+
   .hero-unit {
+    width: 100%;
     background: $blue;
     background: linear-gradient(135deg, $blue-shade 0%, $blue-tint 100%);
     @extend %seam;
