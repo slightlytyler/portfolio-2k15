@@ -1,0 +1,44 @@
+.home {
+  .hero-unit {
+    background: $blue;
+    background: linear-gradient(135deg, $blue-shade 0%, $blue-tint 100%);
+
+    padding-top: 4rem;
+
+    text-align: center;
+
+    h1,
+    h3 {
+      color: white;
+      @extend %ui-shadow;
+    }
+
+    section.images {
+      width: 17.0833rem;
+      height: 5.9167rem;
+
+      z-index: -1;
+
+      margin: {
+        top: 1rem;
+        left: 50%;
+      }
+      transform: translateX(-50%);
+    }
+
+    img { 
+      position: absolute; 
+      bottom: 0;
+
+      &.app {
+        width: 100%;
+        left: 0;
+      }
+
+      &.phone {
+        width: (6.0833 / 17.0833) * 100%;
+        right: 14%;
+      }
+    }
+  }
+}

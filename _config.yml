@@ -34,12 +34,12 @@ assets:
   # Sets JS compressor. No compression by default.
   # Possible variants: 'yui', 'uglifier', nil
   #
-  js_compressor: uglifier
+  #js_compressor: uglifier
   #
   # Sets CSS compressor. No compression by default.
   # Possible variants: 'yui', 'sass', nil
   #
-  css_compressor: sass
+  #css_compressor: sass
   #
   # Sets cachebusting policy for generated assets.
   #
@@ -75,7 +75,7 @@ assets:
   # You can set it to `false` to disable gzipping. Only javascripts and
   # stylesheets are gzipped by default.
   #
-  gzip: [ text/css, application/javascript ]
+  #gzip: [ text/css, application/javascript ]
   #
   # Does not concatenates files requested by `javascript` and `stylesheet`
   # helpers. Instead outputs multiple files in order they are required.
