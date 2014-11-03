@@ -8,7 +8,7 @@ nav.main {
   background-color: $eggshell;
   @extend %seam;
 
-  section.container {
+  div.container {
     @include outer-container($outer-width);
 
     display: flex;
