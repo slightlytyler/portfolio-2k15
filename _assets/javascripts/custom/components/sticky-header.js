@@ -18,9 +18,10 @@ $.fn.stickyHeader = function(pushID) {
     } else if(pushTop <= 0) {
       self.css('top', -navbarHeight + 'px');
       self.addClass('retracted');
-    } else {
+    } else if(pushTop > navbarHeight) {
       self.css('top', '0px');
       self.removeClass('pushed');
+      self.removeClass('extend');
     }
   });
 
@@ -50,16 +51,15 @@ $.fn.stickyHeader = function(pushID) {
     // Make sure scroll > delta
     if(Math.abs(lastScrollTop - st) <= delta)
       return;
-    console.log('pop');
 
     // Determine direction
     if (st > lastScrollTop){
         // Scroll Down
-        self.removeClass('extend')
+        self.removeClass('extend');
     } else {
         // Scroll Up
         if(st + $(window).height() < $(document).height()) {
-            self.addClass('extend')
+            self.addClass('extend');
         }
     }
 

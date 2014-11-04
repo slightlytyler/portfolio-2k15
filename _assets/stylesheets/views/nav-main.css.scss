@@ -19,7 +19,7 @@ nav.main {
     transition: top .2s ease-in-out;
   }
 
-  &.pushed.extend {
+  &.pushed.extend, &.retracted.extend {
     top: 0 !important;
   }
 
