@@ -4,4 +4,5 @@
 
 function pageLoad() {
   homePage();
+  $('nav.main').stickyHeader('#nav-push');
 }

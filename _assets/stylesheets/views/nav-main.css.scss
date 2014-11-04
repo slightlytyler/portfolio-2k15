@@ -2,6 +2,11 @@ nav.main {
   position: fixed;
   top: 0;
   left: 0;
+
+  z-index: 4;
+
+  transition: transform .2s ease-in-out;
+
   
   $nav-main--height: 6.3333rem;
   width: 100%;
@@ -11,6 +16,10 @@ nav.main {
 
   background-color: $eggshell;
   @extend %seam;
+
+  &.retracted.extend {
+    transform: translateY(100%);
+  }
 
   div.container {
     @include outer-container($outer-width);
