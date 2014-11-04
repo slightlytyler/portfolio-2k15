@@ -53,6 +53,23 @@
             "_bower_components/fastclick/lib/fastclick.js": "fastclick.js"
           }
         ]
+      },
+      "gsap": {
+        "mapping": [
+          {
+            "_bower_components/gsap/src/minified/TweenMax.min.js": "gsap-TweenMax.js"
+          }
+        ]
+      },
+      "ScrollMagic": {
+        "mapping": [
+          {
+            "_bower_components/scrollmagic/js/jquery.scrollmagic.min.js": "scrollmagic.js"
+          },
+          {
+            "_bower_components/scrollmagic/js/jquery.scrollmagic.debug.js": "scrollmagic-debug.js"
+          }
+        ]
       }
     }
   },
@@ -69,6 +86,8 @@
     "typeplate-starter-kit": "~1.1.4",
     "jeet": "~6.1.2",
     "smoothstate": "~0.5.1",
-    "fastclick": "~1.0.3"
+    "fastclick": "~1.0.3",
+    "ScrollMagic": "~1.2.3",
+    "gsap": "~1.14.2"
   }
 }

@@ -14,4 +14,6 @@ function homePage() {
   });
 
   $('.portfolio--list').css({ 'margin-top': (displaceHeight + headerHeight) });
+
+  $('.hero-unit').blurFade();
 }
