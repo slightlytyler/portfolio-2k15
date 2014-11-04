@@ -5,8 +5,6 @@ nav.main {
 
   z-index: 4;
 
-  transition: transform .2s ease-in-out;
-
   
   $nav-main--height: 6.3333rem;
   width: 100%;
@@ -17,8 +15,12 @@ nav.main {
   background-color: $eggshell;
   @extend %seam;
 
-  &.retracted.extend {
-    transform: translateY(100%);
+  &.retracted, &.extend{
+    transition: top .2s ease-in-out;
+  }
+
+  &.pushed.extend {
+    top: 0 !important;
   }
 
   div.container {
