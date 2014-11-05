@@ -14,5 +14,4 @@
 // Components
 //= require custom/components/sticky-header
 // Views
-//= require custom/views/home
 //= require custom/views/blur-fade

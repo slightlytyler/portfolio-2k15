@@ -3,6 +3,6 @@
 // placed here to be executed via smoothstate.
 
 function pageLoad() {
-  homePage();
   $('nav.main').stickyHeader('#nav-push');
+  $('.blur-fade').blurFade('#blur-container');
 }
