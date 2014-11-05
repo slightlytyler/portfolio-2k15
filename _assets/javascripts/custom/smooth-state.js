@@ -42,12 +42,12 @@ $(function() {
           // Add current content
           $container.html($content);
 
+          // Refire page javascript
+          pageLoad();
+          
           // Add exiting animation class to exiting content
           $('#exiting-content').addClass('is-exiting');
           $('#current-content').addClass('is-entering');
-
-          // Refire page javascript
-          pageLoad();
         }
       },
       callback : function(url, $container, $content) {
