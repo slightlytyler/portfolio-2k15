@@ -9,6 +9,9 @@ $(function() {
       onStart: {
         duration: 0,
         render: function (url, $container) {
+          // Lock scrolling
+          $('body').addClass('scroll-lock');
+
           // Move current content to exiting container
           $("#exiting-content").html($("#current-content").html());
 
@@ -41,6 +44,7 @@ $(function() {
 
           // Add exiting animation class to exiting content
           $('#exiting-content').addClass('is-exiting');
+          $('#current-content').addClass('is-entering');
 
           // Refire page javascript
           pageLoad();
@@ -52,6 +56,10 @@ $(function() {
 
         // And remove animation class
         $('#exiting-content').removeClass('is-exiting');
+        $('#current-content').removeClass('is-entering');
+
+        // Unlock scrolling
+        $('body').removeClass('scroll-lock');
       }
     }).data('smoothState');
 

@@ -16,4 +16,13 @@
     // add the base animation styles directly to the element
     // then add the exit styles for &.is-exiting
   }
+
+  &.is-exiting .scene-element {
+    position: absolute;
+    animation-name: slide-out;
+  }
+
+  &.is-entering .scene-element {
+    animation-name: slide-in;
+  }
 } 

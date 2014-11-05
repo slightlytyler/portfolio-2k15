@@ -3,6 +3,8 @@ html, body{
   padding: 0;
 }
 
+body.scroll-lock { overflow: hidden; }
+
 * {
   box-sizing: border-box;
 }
