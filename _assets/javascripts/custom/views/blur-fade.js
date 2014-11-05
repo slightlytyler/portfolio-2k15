@@ -34,7 +34,7 @@ $.fn.blurFade = function() {
   // through background-color: inherit
   var overlayTween = TweenMax.to(
     alphaAmount, 1, 
-    {a:.35, onUpdate:applyAlpha}
+    {a:.65, onUpdate:applyAlpha}
   );
 
   // Attach to DOM

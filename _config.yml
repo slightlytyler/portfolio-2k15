@@ -87,3 +87,19 @@ assets:
   # Default: 1
   #
   version: 1
+  #
+
+
+# Custom collections
+#
+#
+collections:
+  pages:
+    output: true
+    permalink: /:path:output_ext
+  #
+  portfolio:
+    output: true
+    permalink: portfolio/:path:output_ext
+#
+#
