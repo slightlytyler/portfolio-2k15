@@ -25,4 +25,17 @@
   &.is-entering .scene-element {
     animation-name: slide-in;
   }
+
+  .scene-element.page-trans--portfolio {
+    display: none !important;
+  }
+
+  &.is-exiting .scene-element.page-trans--slide {
+    position: absolute;
+    animation-name: slide-out;
+  }
+
+  &.is-entering .scene-element.page-trans--slide {
+    animation-name: slide-in;
+  }
 } 

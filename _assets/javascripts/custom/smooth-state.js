@@ -62,10 +62,23 @@ $(function() {
         $('body').removeClass('scroll-lock');
       }
     }).data('smoothState');
-
-    $('header a').bind('click',function(e){
+  
+    // Header is outsite our container so we need to load those manually
+    // In addition we will use this space to set animation classes
+    $('a').bind('click',function(e){
       e.preventDefault();
+
+      // Get animation class from the anchor's data-page-trans 
+      var animationClass = $(this).data("page-trans");
+
+      // Add it to the current scene element
+      $('#current-content .scene-element').addClass(animationClass);
+
+      // Get the url
       var href = $(this).attr('href');
+
+      // Load url into smooth state
       content.load(href);
     });
+
 });
