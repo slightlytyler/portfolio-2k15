@@ -18,7 +18,7 @@
   }
 
   &.is-exiting.page-trans--portfolio .scene-element {
-    a:not(.smooth-state--select) { display: none; }
+    .portfolio--list a:not(.smooth-state--select) { display: none; }
   }
 
   &.is-exiting.page-trans--slide .scene-element {

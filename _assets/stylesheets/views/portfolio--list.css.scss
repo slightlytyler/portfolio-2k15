@@ -12,6 +12,11 @@
     background-color: black;
     background-size: cover;
 
+    &.smooth-state--select {
+      position: fixed;
+      top: 0;
+    }
+
     &:before {
       content: '';
 

@@ -1,7 +1,8 @@
-.portfolio-single {
+.portfolio--single {
+  opacity: 0;
+  
   .hero-unit {
     content: '';
-    background-color: blue;
     height: 50vh;
     width: 100%;
 
