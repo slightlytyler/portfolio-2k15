@@ -4,5 +4,5 @@
 
 function pageLoad() {
   $('nav.main').stickyHeader('#current-content #nav-push');
-  $('.blur-fade').blurFade('#blur-container');
+  $('#current-content .blur-fade').blurFade('#blur-container');
 }
