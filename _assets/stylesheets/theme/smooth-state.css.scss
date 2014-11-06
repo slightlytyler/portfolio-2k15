@@ -17,25 +17,16 @@
     // then add the exit styles for &.is-exiting
   }
 
-  &.is-exiting .scene-element {
+  &.is-exiting.page-trans--portfolio .scene-element {
+    a:not(.smooth-state--select) { display: none; }
+  }
+
+  &.is-exiting.page-trans--slide .scene-element {
     position: absolute;
     animation-name: slide-out;
   }
 
-  &.is-entering .scene-element {
-    animation-name: slide-in;
-  }
-
-  .scene-element.page-trans--portfolio {
-    display: none !important;
-  }
-
-  &.is-exiting .scene-element.page-trans--slide {
-    position: absolute;
-    animation-name: slide-out;
-  }
-
-  &.is-entering .scene-element.page-trans--slide {
+  &.is-entering.page-trans--slide .scene-element {
     animation-name: slide-in;
   }
 } 

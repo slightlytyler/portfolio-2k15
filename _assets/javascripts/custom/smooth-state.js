@@ -67,12 +67,16 @@ $(function() {
     // In addition we will use this space to set animation classes
     $('a').bind('click',function(e){
       e.preventDefault();
+      var self = $(this);
+
+      // Add selected class to anchor
+      self.addClass('smooth-state--selected');
 
       // Get animation class from the anchor's data-page-trans 
-      var animationClass = $(this).data("page-trans");
+      var animationClass = self.data("page-trans");
 
-      // Add it to the current scene element
-      $('#current-content .scene-element').addClass(animationClass);
+      // Add animation class to content container
+      $('#current-content, #exiting-content').addClass(animationClass);
 
       // Get the url
       var href = $(this).attr('href');
