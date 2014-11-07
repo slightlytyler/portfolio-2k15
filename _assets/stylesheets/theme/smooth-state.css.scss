@@ -17,10 +17,6 @@
     // then add the exit styles for &.is-exiting
   }
 
-  &.is-exiting.page-trans--portfolio .scene-element {
-    .portfolio--list a:not(.smooth-state--select) { display: none; }
-  }
-
   &.is-exiting.page-trans--slide .scene-element {
     position: absolute;
     animation-name: slide-out;

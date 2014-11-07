@@ -14,7 +14,7 @@
 
     &.smooth-state--select {
       position: fixed;
-      top: 0;
+      top: 76px;
     }
 
     &:before {
@@ -79,4 +79,8 @@
     font-size: 1.3333rem;
     letter-spacing: .1rem;
   }
+}
+
+.is-exiting.page-trans--portfolio .scene-element {
+  .portfolio--list li:not(.smooth-state--select) a, .hero-unit { display: none; }
 }
