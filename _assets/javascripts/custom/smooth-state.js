@@ -16,6 +16,12 @@ $(function() {
           var $directory = url.replace(/https?:\/\/[^\/]+/i, "");
           var $anchor = $('a[href="' + $directory + '"]');
 
+          // Portfolio transition
+          var $portfolioListItem = $anchor.parent();
+          var $offsetTop = $portfolioListItem.windowOffset('top');
+
+          $portfolioListItem.css('top', $offsetTop);
+
 
           // Target for the smooth-select class
           var smoothSelectTarget = $anchor.data("smooth-select-target");
@@ -58,12 +64,15 @@ $(function() {
         }
       },
       onProgress: {
-        duration: 0,
+        duration: 1000,
         render: function (url, $container) {
           // Scroll top
           $body.animate({
             scrollTop: 0
           });
+
+          // Add in-progress class to exiting content
+          $("#exiting-content").addClass('in-progress');
 
           // Change cursor to reflect loading
           $body.css('cursor', 'wait');
@@ -71,7 +80,7 @@ $(function() {
         }
       },
       onEnd: {
-        duration: 1000,
+        duration: 300,
         render: function(url, $container, $content) {
           // Remove loading cursor
           $body.css('cursor', 'auto');
@@ -83,6 +92,9 @@ $(function() {
           // Refire page javascript
           pageLoad();
           
+          // Remove in-progress class to exiting content
+          $("#exiting-content").removeClass('in-progress');
+
           // Add exiting animation class to exiting content
           $('#exiting-content').addClass('is-exiting');
           $('#current-content').addClass('is-entering');
@@ -121,11 +133,11 @@ $(function() {
 
 // Function to remove page-trans classes
 function removePageTransClasses (index, classNames) {
-  var current_classes = classNames.split(" "), // change the list into an array
-      classes_to_remove = []; // array of classes which are to be removed
+  var current_classes = classNames.split(" "), // Change the list into an array
+      classes_to_remove = []; // Array of classes which are to be removed
 
   $.each(current_classes, function (index, class_name) {
-    // if the classname begins with bg add it to the classes_to_remove array
+    // If the classname begins with page-trans add it to the classes_to_remove array
     if (/page-trans.*/.test(class_name)) {
       classes_to_remove.push(class_name);
     }

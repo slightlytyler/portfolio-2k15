@@ -10,8 +10,7 @@ $.fn.stickyHeader = function(pushID) {
     // Position of the push element relative to window top
     var pushOffset = push.offset().top;
     var pushTop = pushOffset - $(window).scrollTop();
-
-    console.log(pushOffset);
+    
 
     // All 3 cases: currently being pushed, fully pushed, and not pushed
     if(pushTop <= navbarHeight && pushTop > 0) {

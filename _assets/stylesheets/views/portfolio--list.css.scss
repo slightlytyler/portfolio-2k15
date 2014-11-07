@@ -12,9 +12,12 @@
     background-color: black;
     background-size: cover;
 
+    transition: top .2s ease-in-out;
+    transition: opacity .2s ease-in-out;
+
     &.smooth-state--select {
       position: fixed;
-      top: 76px;
+      z-index: 5;
     }
 
     &:before {
@@ -81,6 +84,10 @@
   }
 }
 
+.page-trans--portfolio .scene-element {
+  .hero-unit { background-color: black !important; }
+  .portfolio--list li:not(.smooth-state--select) a, .hero-unit #blur-container { opacity: 0; }
+}
+
 .is-exiting.page-trans--portfolio .scene-element {
-  .portfolio--list li:not(.smooth-state--select) a, .hero-unit { display: none; }
 }

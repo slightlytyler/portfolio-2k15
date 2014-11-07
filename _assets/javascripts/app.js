@@ -5,6 +5,10 @@
 //= require bower/ScrollMagic/scrollmagic
 //= require bower/ScrollMagic/scrollmagic-debug
 //
+// Custom
+//
+// Utilities
+//= require custom/utilities/window-offset
 //
 // Components
 //= require custom/components/sticky-header
@@ -13,7 +17,7 @@
 //= require custom/views/blur-fade
 //
 //
-// Custom
+// Global
 //= require custom/page-load
 //= require custom/smooth-state
 //
