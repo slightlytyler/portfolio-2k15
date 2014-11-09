@@ -6,9 +6,12 @@
     background: linear-gradient(135deg, $blue-shade 0%, $blue-tint 100%);
     @extend %seam;
 
-    padding-top: 4rem;
-
     text-align: center;
+
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+
+    #blur-container { padding-top: 4rem; }
 
     h1,
     h3 {

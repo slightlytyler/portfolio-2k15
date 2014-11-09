@@ -7,7 +7,7 @@ $(function() {
       prefetch: true,
       pageCacheSize: 4,
       onStart: {
-        duration: 0,
+        duration: 1000,
         render: function (url, $container) {
           // Lock scrolling
           $('body').addClass('scroll-lock');
@@ -16,11 +16,17 @@ $(function() {
           var $directory = url.replace(/https?:\/\/[^\/]+/i, "");
           var $anchor = $('a[href="' + $directory + '"]');
 
+
           // Portfolio transition
           var $portfolioListItem = $anchor.parent();
           var $offsetTop = $portfolioListItem.windowOffset('top');
 
+          // Offset selected item so it stays the same in position fixed
           $portfolioListItem.css('top', $offsetTop);
+
+          // Add margin top to compensate for selcted portfolio item
+          // being out of the flow of the document
+          $portfolioListItem.next().css('margin-top', $portfolioListItem.outerHeight())
 
 
           // Target for the smooth-select class
@@ -64,7 +70,7 @@ $(function() {
         }
       },
       onProgress: {
-        duration: 1000,
+        duration: 0,
         render: function (url, $container) {
           // Scroll top
           $body.animate({
@@ -80,7 +86,7 @@ $(function() {
         }
       },
       onEnd: {
-        duration: 300,
+        duration: 1000,
         render: function(url, $container, $content) {
           // Remove loading cursor
           $body.css('cursor', 'auto');

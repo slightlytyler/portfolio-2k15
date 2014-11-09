@@ -3,7 +3,7 @@ $.fn.blurFade = function(innerContainer) {
   var navHeight = $('nav.main').outerHeight();
 
   // Move out of the way for the header
-  self.css({ "top": navHeight });
+  self.css({ "padding-top": navHeight });
 
   // Scrolling based blur and overlay
   // using scrollmagic!
@@ -12,7 +12,7 @@ $.fn.blurFade = function(innerContainer) {
   var blurContainer = self.find(innerContainer);
 
   // Height of the nav + the element being blurred
-  var displaceHeight = navHeight + self.outerHeight();
+  var displaceHeight = self.outerHeight();
 
   // Set up scroll magic to blur element
   var controller = new ScrollMagic();
@@ -63,7 +63,7 @@ $.fn.blurFade = function(innerContainer) {
   // Second, need to displace the next sibling of
   // blur-fade element as blur-fade is fixed
   var displaceElement = self.next();
-  var displaceHeight = self.outerHeight() + navHeight;
+  var displaceHeight = self.outerHeight();
 
   displaceElement.css({ 'margin-top': displaceHeight });
 };
