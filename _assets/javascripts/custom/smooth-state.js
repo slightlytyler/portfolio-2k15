@@ -28,30 +28,10 @@ $(function() {
           // being out of the flow of the document
           $portfolioListItem.next().css('margin-top', $portfolioListItem.outerHeight())
 
+          // Add smooth-state--select class to click link
+          addSmoothSelectTarget($anchor);
 
-          // Target for the smooth-select class
-          var smoothSelectTarget = $anchor.data("smooth-select-target");
-
-          // Determing smooth-selected target
-          // Add smooth-state--selected class to it
-
-          if(smoothSelectTarget == 'self') {
-            // if target is itself, the anchor
-
-            $anchor.addClass('smooth-state--select');
-          } else if(smoothSelectTarget == 'parent') {
-            // if target is the parent
-
-            $anchor.parent().addClass('smooth-state--select');
-          } else if(smoothSelectTarget == 'child') {
-            // if target is it's immediate chiled
-
-            $anchor.children('*:first-child').addClass('smooth-state--select');
-          } else {
-            // else target is a specific class
-
-            $(smoothSelectTarget).addClass('smooth-state--select');
-          }
+          
 
 
           // Get animation class from the anchor's data-page-trans 
@@ -136,6 +116,34 @@ $(function() {
     });
 
 });
+
+// Function to get the smooth-select target from anchors
+// data-smooth-select-target attr
+function addSmoothSelectTarget ($anchor) {
+  // Get smooth-select-target from data-smooth-select-target
+  var smoothSelectTarget = $anchor.data("smooth-select-target");
+
+  // Determing smooth-selected target
+  // Add smooth-state--selected class to it
+
+  if(smoothSelectTarget == 'self') {
+    // if target is itself, the anchor
+
+    $anchor.addClass('smooth-state--select');
+  } else if(smoothSelectTarget == 'parent') {
+    // if target is the parent
+
+    $anchor.parent().addClass('smooth-state--select');
+  } else if(smoothSelectTarget == 'child') {
+    // if target is it's immediate chiled
+
+    $anchor.children('*:first-child').addClass('smooth-state--select');
+  } else {
+    // else target is a specific class
+
+    $(smoothSelectTarget).addClass('smooth-state--select');
+  }
+}
 
 // Function to remove page-trans classes
 function removePageTransClasses (index, classNames) {
