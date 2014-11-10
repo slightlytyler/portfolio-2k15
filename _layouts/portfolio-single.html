@@ -4,9 +4,17 @@ layout: default
 <div class="portfolio--single scene-element">
   <section class="hero-unit blur-fade">
     <div id="blur-container">
-      BLUR THIS
+    <a href="{{ page.url }}">
+      <img style="background-image: url({% portfolio_img page.title %})" />
+      <div class="info-container">
+        <h2>{{ page.title }}</h2>
+        <span>{% for tag in page.tags %}{{ tag }}{% if forloop.last == false %} &amp; {% endif %}{% endfor %}</span>
+      </div>
+    </a>
     </div>
   </section>
+
   <section id="nav-push" class="details">
+    info goes here
   </section>
 </div>
