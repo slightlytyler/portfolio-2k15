@@ -57,7 +57,7 @@ $(function() {
         }
       },
       onEnd: {
-        duration: 500,
+        duration: 300,
         render: function(url, $container, $content) {
           // Remove loading cursor
           $body.css('cursor', 'auto');

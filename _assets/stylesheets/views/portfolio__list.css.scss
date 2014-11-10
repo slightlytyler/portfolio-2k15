@@ -1,0 +1,40 @@
+.portfolio__list {
+  @extend %clear-list;
+
+  li {
+    @extend %portfolio__item;
+    padding-bottom: 50%;
+
+    &.smooth-state--select {
+      position: fixed;
+      z-index: 3;
+    }
+
+    &:before { background: linear-gradient(to bottom, rgba(0,0,0,.5) 0%, rgba(0,0,0,.65) 100%); }
+  }
+}
+
+.page-trans--portfolio .scene-element {
+  .portfolio__list li:not(.smooth-state--select), .hero-unit { 
+    animation-name: hide;
+    animation-duration: .3s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+  }
+
+  .portfolio__list li:not(.smooth-state--select) div.info-container {
+    animation-name: fade-out--center;
+    animation-duration: .3s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+  }
+}
+
+.is-exiting.page-trans--portfolio .scene-element {
+  li.smooth-state--select{
+    animation-name: portfolio-pic;
+    animation-duration: .2s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+  }
+}

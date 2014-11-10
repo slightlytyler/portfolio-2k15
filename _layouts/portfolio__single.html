@@ -1,14 +1,14 @@
 ---
 layout: default
 ---
-<div class="portfolio--single scene-element">
+<div class="portfolio__single scene-element">
   <section class="hero-unit blur-fade">
     <div id="blur-container">
     <a href="{{ page.url }}">
-      <img style="background-image: url({% portfolio_img page.title %})" />
+      <img class="background" style="background-image: url({% portfolio_img page.title %})" />
       <div class="info-container">
         <h2>{{ page.title }}</h2>
-        <span>{% for tag in page.tags %}{{ tag }}{% if forloop.last == false %} &amp; {% endif %}{% endfor %}</span>
+        <span class="tags">{% for tag in page.tags %}{{ tag }}{% if forloop.last == false %} &amp; {% endif %}{% endfor %}</span>
       </div>
     </a>
     </div>

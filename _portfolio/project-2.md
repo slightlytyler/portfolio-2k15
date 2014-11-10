@@ -1,5 +1,5 @@
 ---
-layout: portfolio-single
+layout: portfolio__single
 title:  "Project 2"
 order:  2
 tags:

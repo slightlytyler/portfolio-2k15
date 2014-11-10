@@ -25,14 +25,14 @@ layout: default
     </section>
   </section>
 
-  <ul id="nav-push" class="portfolio--list">
+  <ul id="nav-push" class="portfolio__list">
   {% for piece in portfolio %}
-    <li class="portfolio--item">
+    <li>
     <a href="{{ piece.url }}" data-page-trans="page-trans--portfolio" data-page-trans-function="portfolioList" data-smooth-select-target="parent">
-      <img style="background-image: url({% portfolio_img piece.title %})" />
+      <img class="background" style="background-image: url({% portfolio_img piece.title %})" />
       <div class="info-container">
         <h2>{{ piece.title }}</h2>
-        <span>{% for tag in piece.tags %}{{ tag }}{% if forloop.last == false %} &amp; {% endif %}{% endfor %}</span>
+        <span class="tags">{% for tag in piece.tags %}{{ tag }}{% if forloop.last == false %} &amp; {% endif %}{% endfor %}</span>
       </div>
     </a>
     </li>
