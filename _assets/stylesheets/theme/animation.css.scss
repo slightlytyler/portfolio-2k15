@@ -23,3 +23,16 @@
   from {transform: translate3D(0, 0, 0);}
   to {transform: translate3D(-100%, 0, 0);}
 }
+
+// Page Specific
+
+@keyframes portfolio-pic {
+  from {
+    padding-bottom: 50%;
+  }
+
+  to {
+    top: 0;
+    padding-bottom: 100%;
+  }
+}

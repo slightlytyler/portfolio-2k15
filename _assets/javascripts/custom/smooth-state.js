@@ -7,7 +7,7 @@ $(function() {
       prefetch: true,
       pageCacheSize: 4,
       onStart: {
-        duration: 1000,
+        duration: 100,
         render: function (url, $container) {
           // Lock scrolling
           $('body').addClass('scroll-lock');
@@ -57,7 +57,7 @@ $(function() {
         }
       },
       onEnd: {
-        duration: 1000,
+        duration: 500,
         render: function(url, $container, $content) {
           // Remove loading cursor
           $body.css('cursor', 'auto');

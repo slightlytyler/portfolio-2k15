@@ -8,7 +8,6 @@
     overflow: hidden;
 
     // Basic animation settings
-    animation-duration: 1s;
     transition-timing-function: ease-in;
     animation-fill-mode: both;
 
@@ -20,9 +19,11 @@
   &.is-exiting.page-trans--slide .scene-element {
     position: absolute;
     animation-name: slide-out;
+    animation-duration: .3s;
   }
 
   &.is-entering.page-trans--slide .scene-element {
     animation-name: slide-in;
+    animation-duration: .3s;
   }
 } 

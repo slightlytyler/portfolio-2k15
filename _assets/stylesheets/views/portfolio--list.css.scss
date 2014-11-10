@@ -103,10 +103,15 @@
 
 .is-exiting.page-trans--portfolio .scene-element {
   li.smooth-state--select{
-    top: 0 !important;
-    padding-bottom: 100%;
+    animation-name: portfolio-pic;
+    animation-duration: .5s;
+    animation-fill-mode: forwards;
 
-    &:before { opacity: 0; }
+    &:before {
+      animation-name: hide;
+      animation-duration: .3s;
+      animation-fill-mode: forwards;
+    }
   }
 
   .portfolio--list li.smooth-state--select div.info-container {
