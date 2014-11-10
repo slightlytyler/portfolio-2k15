@@ -1,7 +1,6 @@
 // Bower
 //= require bower/jquery/jquery
 //= require bower/smoothstate/smoothstate
-//= require bower/iscroll/iScroll
 //= require bower/gsap/gsap-TweenMax
 //= require bower/ScrollMagic/scrollmagic
 //= require bower/ScrollMagic/scrollmagic-debug

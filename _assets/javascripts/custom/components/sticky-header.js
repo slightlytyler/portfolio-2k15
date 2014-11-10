@@ -4,34 +4,23 @@ $.fn.stickyHeader = function(pushID) {
 
   var push = $(pushID);
 
+  // Call pushHeader
   $(window).scroll(function(){
-    // First we need to push the header out of the way
-
-    // Position of the push element relative to window top
-    var pushOffset = push.offset().top;
-    var pushTop = pushOffset - $(window).scrollTop();
-    
-
-    // All 3 cases: currently being pushed, fully pushed, and not pushed
-    if(pushTop <= navbarHeight && pushTop > 0) {
-      self.css('top', pushTop - navbarHeight + 'px');
-      self.addClass('pushed');
-      self.removeClass('retracted');
-    } else if(pushTop <= 0) {
-      self.css('top', -navbarHeight + 'px');
-      self.addClass('retracted');
-    } else if(pushTop > navbarHeight) {
-      self.css('top', '0px');
-      self.removeClass('pushed');
-      self.removeClass('extend');
-    }
+    pushHeader(push);
   });
 
   // Now lets extend it if it's retracted and they scroll up a bit
+  //
   var didScroll;
 
   // on scroll, let the interval function know the user has scrolled
   $(window).scroll(function(event){
+    didScroll = true;
+  });
+
+  // Mobile scroll accounted for
+  $('body').bind('touchmove', function(e) { 
+    pushHeader(push);
     didScroll = true;
   });
 
@@ -67,5 +56,28 @@ $.fn.stickyHeader = function(pushID) {
 
     // Update lastScrollTop
     lastScrollTop = st;
+  }
+
+  function pushHeader(push) {
+    // First we need to push the header out of the way
+
+    // Position of the push element relative to window top
+    var pushOffset = push.offset().top;
+    var pushTop = pushOffset - $(window).scrollTop();
+    
+
+    // All 3 cases: currently being pushed, fully pushed, and not pushed
+    if(pushTop <= navbarHeight && pushTop > 0) {
+      self.css('top', pushTop - navbarHeight + 'px');
+      self.addClass('pushed');
+      self.removeClass('retracted');
+    } else if(pushTop <= 0) {
+      self.css('top', -navbarHeight + 'px');
+      self.addClass('retracted');
+    } else if(pushTop > navbarHeight) {
+      self.css('top', '0px');
+      self.removeClass('pushed');
+      self.removeClass('extend');
+    }
   }
 };
