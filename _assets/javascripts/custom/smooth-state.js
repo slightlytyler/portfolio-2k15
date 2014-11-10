@@ -66,6 +66,11 @@ $(function() {
           // Add current content
           $container.html($content);
 
+          // Scroll top
+          $body.animate({
+            scrollTop: 0
+          });
+
           // Refire page javascript
           pageLoad();
           

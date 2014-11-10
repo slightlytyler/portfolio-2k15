@@ -15,6 +15,62 @@ layout: default
   </section>
 
   <section id="nav-push" class="details">
-    info goes here
+    <div class="info-container">
+      <h1 class="project-title">{{ page.title }}</h1>
+      <span class="portfolio__tags">{% for tag in page.tags %}{{ tag }}{% if forloop.last == false %} &amp; {% endif %}{% endfor %}</span>
+    </div>
+
+    <div class="project__stack">
+      <section class="design">
+        <ul>
+          <li>Sketch</li>
+          <li>Origami</li>
+        </ul>
+        <img src="" />
+      </section>
+      <section class="development">
+        <ul>
+          <li>Ember</li>
+          <li>Firebase</li>
+          <li>Front End</li>
+        </ul>
+        <img src="" />
+      </section>
+    </div>
+
+    <div class="case-study">
+      <section class="stats">
+        <dl>
+          <dt>CLient:</dt>
+          <dd>Client Company</dd>
+
+          <dt>Role:</dt>
+          <dd>
+            <ul>
+              <li>Designer</li>
+              <li>Front End</li>
+            </ul>
+          </dd>
+
+          <dt>Date:</dt>
+          <dd>Feb 2014 - May 2014</dd>
+        </dl>
+
+        <section class="preview">
+          <img src="" />
+        </section>
+
+        <section class="body">
+          <p>Sed nec orci id nisl ultricies lacinia a in tellus. Aliquam tincidunt placerat lectus, tristique aliquet 
+          dolor efficitur id. Maecenas cursus, eros eget rutrum mollis, enim urna vehicula erat, ac suscipit justo 
+          neque vel magna. Integer vel luctus mauris.</p>
+          <p>Aenean nunc nisi, efficitur eu malesuada ac, placerat in felis. Nulla at massa tempor, porta arcu et, 
+          interdum tortor. Nulla eget tortor porttitor, molestie neque eu, sollicitudin tortor.</p>
+        </section>
+
+        <a class="live-site" href="{{ page.url }}">Live Site</a>
+      </section>
+
+    </div>
   </section>
 </div>
