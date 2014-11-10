@@ -15,6 +15,9 @@
 //
 // Views
 //= require custom/views/blur-fade
+// 
+// Page Transitions
+//= require custom/page-transitions/portfolio--list
 //
 //
 // Global

@@ -16,31 +16,22 @@ $(function() {
           var $directory = url.replace(/https?:\/\/[^\/]+/i, "");
           var $anchor = $('a[href="' + $directory + '"]');
 
+          // Page specific onStart javascript
+          var pageTransFunction = $anchor.data("page-trans-function");
 
-          // Portfolio transition
-          var $portfolioListItem = $anchor.parent();
-          var $offsetTop = $portfolioListItem.windowOffset('top');
-
-          // Offset selected item so it stays the same in position fixed
-          $portfolioListItem.css('top', $offsetTop);
-
-          // Add margin top to compensate for selcted portfolio item
-          // being out of the flow of the document
-          $portfolioListItem.next().css('margin-top', $portfolioListItem.outerHeight())
+          if (pageTransFunction) {
+            var pageTransFunctionOnStart = pageTransFunction + "OnStart";
+            $anchor[pageTransFunctionOnStart]();
+          }
 
           // Add smooth-state--select class to click link
-          addSmoothSelectTarget($anchor);
-
-          
-
+          addSmoothSelectTarget($anchor); 
 
           // Get animation class from the anchor's data-page-trans 
           var animationClass = $anchor.data("page-trans");
 
           // Add animation class to content container
           $('#current-content, #exiting-content').addClass(animationClass);
-
-
 
           // Move current content to exiting container
           $("#exiting-content").html($("#current-content").html());
