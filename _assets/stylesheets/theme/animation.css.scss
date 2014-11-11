@@ -1,7 +1,19 @@
+// Basics
+//
+// Hide & Show
+
 @keyframes hide {
   from { opacity: 1; }
   to { opacity: 0; }
 }
+
+@keyframes show {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+//
+// Fades
 
 @keyframes fade-out--center {
   from { 
@@ -25,6 +37,20 @@
   }
 }
 
+@keyframes fade-in--left {
+  from { 
+    transform: translateX(3rem); 
+    opacity: 0;
+  }
+  to { 
+    transform: translateX(0); 
+    opacity: 1;
+  }
+}
+
+//
+// Full Page Slides
+
 @keyframes slide-in {
   from {transform: translate3D(100%, 0, 0);}
   to {transform: translate3D(0, 0, 0);}
@@ -35,6 +61,7 @@
   to {transform: translate3D(-100%, 0, 0);}
 }
 
+//
 // Page Specific
 
 @keyframes portfolio-pic {

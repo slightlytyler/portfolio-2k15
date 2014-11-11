@@ -10,60 +10,6 @@
 
     .info-container { margin-top: 2rem; }
   } 
-
-  .details {
-    background-color: white;
-    transform: translateY(-3rem);
-  }
-
-  .basic-info-container {
-    @include window-margin($window-margin);
-    padding: {
-      top: 2.5rem;
-      bottom: 2.1667rem;
-    }
-    background-color: $eggshell;
-    @extend %seam;
-
-    @extend %clearfix;
-  }
-
-  .project__stack {
-    margin-top: 1rem;
-
-    section { 
-      @include column(1/2); 
-      @extend %clearfix;
-    }
-
-    ul { 
-      @extend %clear-list; 
-      @include column(6/13);
-
-      li {
-        @extend .stack__item;
-        padding-left: .2rem;
-        margin-bottom: .41667rem;
-      }
-    }
-
-    div.image-container{
-      @include column(7/13);
-      max-height: 4.6667rem;
-    }
-
-    .design{
-      li { background-color: rgba(230,42,16,.6); }
-    }
-
-    .development{
-      li { background-color: rgba(2,136,209,.6); }
-    }
-  }
-
-  .preview {
-    background-image: image-url("base/devices/phone--outline.svg");
-  }
 }
 
 #current-content.is-entering .portfolio__single {
@@ -89,13 +35,21 @@
     }
   }
 
-  .details {
-    opacity: 0;
-    animation-name: fade-in;
+  .project__details {
+    animation-name: show;
     animation-duration: .3s;
     animation-delay: 1s;
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
+
+    .basic-info-container > *, .case-study {
+      opacity: 0;
+      animation-name: fade-in--left;
+      animation-duration: .3s;
+      animation-delay: 1s;
+      animation-timing-function: ease-out;
+      animation-fill-mode: forwards;
+    }
   }
 }
 

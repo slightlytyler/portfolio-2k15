@@ -7,7 +7,7 @@ $(function() {
       prefetch: true,
       pageCacheSize: 4,
       onStart: {
-        duration: 100,
+        duration: 300,
         render: function (url, $container) {
           // Lock scrolling
           $('body').addClass('scroll-lock');
@@ -76,14 +76,14 @@ $(function() {
           });
 
           // Refire page javascript
-          pageLoad();
-        
-          // Remove in-progress class to exiting content
-          $("#exiting-content").removeClass('in-progress');
+          pageLoad(function() {
+            // Remove in-progress class to exiting content
+            $("#exiting-content").removeClass('in-progress');
 
-          // Add exiting animation class to exiting content
-          $('#current-content').addClass('is-entering');
-          $('#exiting-content').addClass('is-exiting');
+            // Add exiting animation class to exiting content
+            $('#current-content').addClass('is-entering');
+            $('#exiting-content').addClass('is-exiting');
+          });
         }
       },
       callback : function(url, $container, $content) {
@@ -119,7 +119,7 @@ $(function() {
 
 // Function to get the smooth-select target from anchors
 // data-smooth-select-target attr
-function addSmoothSelectTarget ($anchor) {
+function addSmoothSelectTarget($anchor) {
   // Get smooth-select-target from data-smooth-select-target
   var smoothSelectTarget = $anchor.data("smooth-select-target");
 
@@ -146,7 +146,7 @@ function addSmoothSelectTarget ($anchor) {
 }
 
 // Function to remove page-trans classes
-function removePageTransClasses (index, classNames) {
+function removePageTransClasses(index, classNames) {
   var current_classes = classNames.split(" "), // Change the list into an array
       classes_to_remove = []; // Array of classes which are to be removed
 

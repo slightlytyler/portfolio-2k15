@@ -14,10 +14,12 @@ layout: default
     </div>
   </section>
 
-  <section id="nav-push" class="details">
+  <section id="nav-push" class="project__details">
     <div class="basic-info-container">
-      <h1 class="project__title">{{ page.title }}</h1>
-      <span class="portfolio__tags">{% for tag in page.tags %}{{ tag }}{% if forloop.last == false %} &amp; {% endif %}{% endfor %}</span>
+      <div>
+        <h1 class="project__title">{{ page.title }}</h1>
+        <span class="portfolio__tags">{% for tag in page.tags %}{{ tag }}{% if forloop.last == false %} &amp; {% endif %}{% endfor %}</span>
+      </div>
 
       <section class="project__stack">
         <section class="design">
