@@ -11,7 +11,7 @@ class PortfolioImageTag < Liquid::Tag
             @myvalue = to_slug(@myvalue)
         end
 
-        asset = site.asset_path "portfolio/#{@myvalue}/#{@myvalue}--banner.jpg"
+        asset = site.asset_path "portfolio/#{@myvalue}/#{@myvalue}__banner--small.jpg"
 
         "#{asset}"
     end
