@@ -1,5 +1,6 @@
 .portfolio__list {
   @extend %clear-list;
+  transition: box-shadow .1s ease-out;
 
   li {
     @extend %portfolio__item;
@@ -14,10 +15,10 @@
   }
 }
 
-.page-trans--portfolio .scene-element {
+.page-trans--portfolio .home.scene-element {
   .portfolio__list li:not(.smooth-state--select), .hero-unit { 
     animation-name: hide;
-    animation-duration: .3s;
+    animation-duration: .1s;
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
   }
@@ -30,11 +31,15 @@
   }
 }
 
-.is-exiting.page-trans--portfolio .scene-element {
+.is-exiting.page-trans--portfolio .home.scene-element {
   li.smooth-state--select{
     animation-name: portfolio-pic;
     animation-duration: .2s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
+
+    .info-container{ margin-top: 2rem; }
   }
 }
+
+#exiting-content .home.scene-element .portfolio__list { box-shadow: 0 22px 70px 4px rgba(0, 0, 0, 0); }

@@ -12,6 +12,10 @@ $(function() {
           // Lock scrolling
           $('body').addClass('scroll-lock');
 
+          // Extend Nav
+          $('nav.main').removeClass('retracted');
+          $('nav.main').addClass('extended');
+
           // Get selected anchor
           var $directory = url.replace(/https?:\/\/[^\/]+/i, "");
           var $anchor = $('a[href="' + $directory + '"]');
@@ -73,13 +77,13 @@ $(function() {
 
           // Refire page javascript
           pageLoad();
-          
+        
           // Remove in-progress class to exiting content
           $("#exiting-content").removeClass('in-progress');
 
           // Add exiting animation class to exiting content
-          $('#exiting-content').addClass('is-exiting');
           $('#current-content').addClass('is-entering');
+          $('#exiting-content').addClass('is-exiting');
         }
       },
       callback : function(url, $container, $content) {
