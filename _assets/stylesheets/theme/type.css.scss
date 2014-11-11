@@ -1,8 +1,25 @@
-// Headings
+// Shadows
+%ui-shadow {
+  text-shadow: 0 1px 0 rgba(0,0,0,.35);
+}
 
+
+// Headings
 h1 { 
   font-family: $body-font-family;
   font-size: 3.3333rem;
+  line-height: 3.3333rem;
+
+  &.project__title {
+    font-family: $header-font-family;
+    font-weight: bold;
+    font-size: 1.6667rem;
+    line-height: 1.6667rem;
+    margin-bottom: 0;
+    color: $charcoal;
+    text-transform: uppercase;
+
+  }
 }
 
 h2,
@@ -16,12 +33,14 @@ a.ui {
 
 h2 {
   font-size: 1.6667rem;
+  line-height: 1.6667rem;
   font-weight: bold;
   letter-spacing: .2rem;
 }
 
 h3 {
   font-size: 1.3333rem;
+  line-height: 1.3333rem;
   text-transform: uppercase;
 }
 
@@ -30,8 +49,19 @@ h4 {
 }
 
 
-// Shadows
+// Various type elements
+span.portfolio__tags {
+  color: $grey; 
+  font-size: 1.3333rem;
+  line-height: 1.3333rem;
+  letter-spacing: .1rem;
+  text-transform: uppercase; 
+}
 
-%ui-shadow {
-  text-shadow: 0 1px 0 rgba(0,0,0,.35);
+.stack__item {
+  font-family: $header-font-family;
+  font-weight: 100;
+  font-size: .9rem;
+  line-height: 1.3;
+  color: white;
 }
