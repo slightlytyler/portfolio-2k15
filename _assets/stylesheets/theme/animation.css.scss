@@ -49,6 +49,13 @@
 }
 
 //
+// Color
+@keyframes background-fade {
+  from { background-color: transparent; }
+  to { background-color: ''; }
+}
+
+//
 // Full Page Slides
 
 @keyframes slide-in {

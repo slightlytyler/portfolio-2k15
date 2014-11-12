@@ -36,19 +36,22 @@
   }
 
   .project__details {
-    animation-name: show;
-    animation-duration: .3s;
-    animation-delay: 1s;
-    animation-timing-function: ease-out;
-    animation-fill-mode: forwards;
 
-    .basic-info-container > *, .case-study {
+    .basic-info-container, .basic-info-container > *, .case-study {
       opacity: 0;
-      animation-name: fade-in--left;
       animation-duration: .3s;
-      animation-delay: 1s;
       animation-timing-function: ease-out;
       animation-fill-mode: forwards;
+    }
+
+    .basic-info-container { 
+      animation-name: show;
+      animation-delay: .5s;
+    }
+
+    .basic-info-container > *, .case-study {
+      animation-name: fade-in--left;
+      animation-delay: 1s;
     }
   }
 }

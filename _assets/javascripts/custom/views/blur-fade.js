@@ -64,7 +64,6 @@ $.fn.blurFade = function(innerContainer) {
   // blur-fade element as blur-fade is fixed
   var displaceElement = self.next();
   var displaceHeight = self.outerHeight();
-  console.log(displaceHeight);
 
   displaceElement.css({ 'margin-top': displaceHeight });
 };

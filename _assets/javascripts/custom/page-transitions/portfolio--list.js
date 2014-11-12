@@ -1,7 +1,6 @@
 $.fn.portfolioListOnStart = function() {
   // Portfolio transition
   //
-  console.log('porftolioListOnStart');
   $anchor = $(this);
   var $portfolioListItem = $anchor.parent();
   var $offsetTop = $portfolioListItem.windowOffset('top');
