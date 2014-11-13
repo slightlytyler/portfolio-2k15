@@ -4,19 +4,20 @@ $.fn.stickyHeader = function(pushID) {
 
   var push = $(pushID);
 
-  // Call pushHeader
-  $(window).scroll(function(){
+  document.addEventListener("touchmove", ScrollStart, false);
+  document.addEventListener("scroll", Scroll, false);
+
+  function ScrollStart() {
     pushHeader(push);
-  });
+  }
+
+  function Scroll() {
+    pushHeader(push);
+  }
 
   // Now lets extend it if it's retracted and they scroll up a bit
   //
   var didScroll;
-
-  // on scroll, let the interval function know the user has scrolled
-  $(window).scroll(function(event){
-    didScroll = true;
-  });
 
   // Mobile scroll accounted for
   $('body').bind('touchmove', function(e) { 

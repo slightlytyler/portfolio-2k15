@@ -18,7 +18,7 @@
 .page-trans--portfolio .home.scene-element {
   .portfolio__list li:not(.smooth-state--select), .hero-unit { 
     animation-name: hide;
-    animation-duration: .1s;
+    animation-duration: .3s;
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
   }

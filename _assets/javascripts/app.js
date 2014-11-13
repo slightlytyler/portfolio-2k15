@@ -8,6 +8,7 @@
 // Custom
 //
 // Utilities
+//= require custom/utilities/mobile-ua-tests
 //= require custom/utilities/window-offset
 //
 // Components

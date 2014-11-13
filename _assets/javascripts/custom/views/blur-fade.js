@@ -1,69 +1,83 @@
+// Scrolling based blur and overlay
+// using scrollmagic!
+
 $.fn.blurFade = function(innerContainer) {
   var self = $(this);
-  var navHeight = $('nav.main').outerHeight();
+  var blurContainer = self.find(innerContainer); // Find inner blur fade container (#blur-container)
+  var navHeight = $('nav.main').outerHeight(); // Get nav height
+  var displaceHeight = self.outerHeight(); // Height of the blurred element
 
-  // Find inner blur fade container (#blur-container)
-  var blurContainer = self.find(innerContainer);
+  padBlurContainer(blurContainer, navHeight);
 
-  // Move out of the way for the header
-  blurContainer.css({ "padding-top": navHeight });
+  displaceNextSibling(self, displaceHeight);
 
-  // Scrolling based blur and overlay
-  // using scrollmagic!
+  if(!isMobile() || getIOSVersion() >= 8 || getAndroidVersion() >= 3) {
+    scrollExperience(self, displaceHeight);
+  } else {
+    console.log('touch experience');
+  }
 
-  // Height of the nav + the element being blurred
-  var displaceHeight = self.outerHeight();
+  // Pad blur container to account for the main nav overlaying
+  // it's top due to position: fixed
+  function padBlurContainer(blurContainer, navHeight) {
+    blurContainer.css({ "padding-top": navHeight });
+  }
 
-  // Set up scroll magic to blur element
-  var controller = new ScrollMagic();
+  // Manually displace next sibling to accoutn for the
+  // blur container being out of the flow of the document
+  function displaceNextSibling(self, displaceHeight) {    
+    // Second, need to displace the next sibling of
+    // blur-fade element as blur-fade is fixed
+    var displaceElement = self.next();
+    var displaceHeight = self.outerHeight();
 
-  // Can't tween filter so let's make a blue variable
-  var blurAmount = {b:0};
+    displaceElement.css({ 'margin-top': displaceHeight });
+  }
 
-  // build tween
-  var blurTween = TweenMax.to(
-    blurAmount, 1, 
-    {b:4, onUpdate:applyBlur}
-  );
+  function scrollExperience(self, displaceHeight) {
+    // Set up scroll magic to blur element
+    var controller = new ScrollMagic();
 
-  // Attach to DOM
-  function applyBlur() {
-    if(blurAmount.b > 0) {
-      TweenMax.set(blurContainer, {webkitFilter: "blur(" + blurAmount.b + "px)"});
-    } else {
-      TweenMax.set(blurContainer, {webkitFilter: ""});
+    // Can't tween filter so let's make a blue variable
+    var blurAmount = {b:0};
+
+    // build tween
+    var blurTween = TweenMax.to(
+      blurAmount, 1, 
+      {b:4, onUpdate:applyBlur}
+    );
+
+    // Attach to DOM
+    function applyBlur() {
+      if(blurAmount.b > 0) {
+        TweenMax.set(blurContainer, {webkitFilter: "blur(" + blurAmount.b + "px)"});
+      } else {
+        TweenMax.set(blurContainer, {webkitFilter: ""});
+      }
     }
+
+     // Can't tween rgba so let's make a alpha variable
+    var alphaAmount = {a:0};
+
+    // tween effects .blur-fade:after background color 
+    // through background-color: inherit
+    var overlayTween = TweenMax.to(
+      alphaAmount, 1, 
+      {a:.65, onUpdate:applyAlpha}
+    );
+
+    // Attach to DOM
+    function applyAlpha() {
+      TweenMax.set(self, {backgroundColor: "rgba(0,0,0," + alphaAmount.a + ")"});
+    }
+
+    // build scenes
+    var blurScene = new ScrollScene({triggerElement: $(window), triggerHook: "onLeave", duration: displaceHeight})
+      .setTween(blurTween)
+      .addTo(controller);
+
+    var overlayScene = new ScrollScene({triggerElement: $(window), triggerHook: "onLeave", duration: displaceHeight})
+      .setTween(overlayTween)
+      .addTo(controller);
   }
-
-   // Can't tween rgba so let's make a alpha variable
-  var alphaAmount = {a:0};
-
-  // tween effects .blur-fade:after background color 
-  // through background-color: inherit
-  var overlayTween = TweenMax.to(
-    alphaAmount, 1, 
-    {a:.65, onUpdate:applyAlpha}
-  );
-
-  // Attach to DOM
-  function applyAlpha() {
-    TweenMax.set(self, {backgroundColor: "rgba(0,0,0," + alphaAmount.a + ")"});
-  }
-
-  // build scenes
-  var blurScene = new ScrollScene({triggerElement: $(window), triggerHook: "onLeave", duration: displaceHeight})
-    .setTween(blurTween)
-    .addTo(controller);
-
-  var overlayScene = new ScrollScene({triggerElement: $(window), triggerHook: "onLeave", duration: displaceHeight})
-    .setTween(overlayTween)
-    .addTo(controller);
-
-
-  // Second, need to displace the next sibling of
-  // blur-fade element as blur-fade is fixed
-  var displaceElement = self.next();
-  var displaceHeight = self.outerHeight();
-
-  displaceElement.css({ 'margin-top': displaceHeight });
 };
