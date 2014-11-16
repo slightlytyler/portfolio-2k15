@@ -1,84 +1,132 @@
-$.fn.stickyHeader = function(pushID) {
-  var self = $(this);
-  var navbarHeight = self.outerHeight();
+// Sticky Header Plugin
+// Author: Tyler Martinez
+// slightlytyler.com
 
-  var push = $(pushID);
+// Link to repo
+;(function ( $, window, document, undefined ) {
 
-  document.addEventListener("touchmove", ScrollStart, false);
-  document.addEventListener("scroll", Scroll, false);
+    var pluginName = "stickyHeader",
+        defaults = {
+        pushElement: "#nav-push"
+      };
 
-  function ScrollStart() {
-    pushHeader(push);
-  }
-
-  function Scroll() {
-    pushHeader(push);
-  }
-
-  // Now lets extend it if it's retracted and they scroll up a bit
-  //
-  var didScroll;
-
-  // Mobile scroll accounted for
-  $('body').bind('touchmove', function(e) { 
-    pushHeader(push);
-    didScroll = true;
-  });
-
-  // Update only on an interval
-  setInterval(function() {
-    if (didScroll) {
-      hasScrolled();
-      didScroll = false;
+    function Plugin ( element, options ) {
+        this.element = element;
+        this.settings = $.extend( {}, defaults, options );
+        this._defaults = defaults;
+        this._name = pluginName;
+        this.init();
     }
-  }, 250);
 
-  var lastScrollTop = 0;
-  var delta = 80;
+    var $this = this;
 
-  function hasScrolled() {
-    // Store scroll position
-    var st = $(this).scrollTop();
+    $.extend(Plugin.prototype, {
+        init: function () {
+          var self = $(this.element);
+          var navbarHeight = self.outerHeight(); // Height of the header
+          var push = $(this.settings.pushElement); // Element that will 'push' the sticky header
+          var didScroll; // Will be true while scrolling but reset on intervale
 
-    // Make sure scroll > delta
-    if(Math.abs(lastScrollTop - st) <= delta)
-      return;
+          // Touch end and normal scroll
+          function Scroll() {
+            didScroll = true;
+          }
 
-    // Determine direction
-    if (st > lastScrollTop){
-        // Scroll Down
-        self.removeClass('extend');
-    } else {
-        // Scroll Up
-        if(st + $(window).height() < $(document).height()) {
-            self.addClass('extend');
+          // Init our scroll events
+          $(window).bind("scroll.stickyHeaderScroll", Scroll);
+          $(window).bind("touchstart.stickyHeaderTouchStart", Scroll);
+
+          // Update only on an interval
+          setInterval(function() {
+            if (didScroll) {
+              ifScrollDown();
+              pushHeader(self, push);
+
+              didScroll = false; // Reset
+            }
+          }, 250);
+
+          var lastScrollTop = 0; // Value to check against
+
+          function ifScrollDown() {
+            var delta = 80;
+            var st = $(this).scrollTop();
+
+            // Make sure scroll > delta
+            if(Math.abs(lastScrollTop - st) <= delta)
+              return;
+
+            // Determine direction
+            if (st > lastScrollTop){
+                // Scroll Down
+                self.removeClass('extend');
+            } else {
+                // Scroll Up
+                if(st + $(window).height() < $(document).height()) {
+                    self.addClass('extend');
+                }
+            }
+
+            // Update lastScrollTop
+            lastScrollTop = st;
+          }
+
+          function pushHeader(self, push) {
+            // First we need to push the header out of the way
+            //
+            var pushOffset = push.offset().top;
+            var pushTop = pushOffset - $(window).scrollTop(); // Position of the push element relative to window top
+
+            if(pushTop <= 0) {
+              self.addClass('retracted');
+            } else {
+              self.removeClass('retracted');
+            }
+          }
+        },
+        destroy: function() {
+          // Extend Nav
+          $(this.element).removeClass('retracted');
+          $(this.element).removeClass('extended');
+
+          $(window).unbind('.stickyHeaderScroll');
+          $(window).unbind(".stickyHeaderTouchStart");
+          push = null;
+          //.remove() any helper elements created by the plugin
         }
-    }
+    });
 
-    // Update lastScrollTop
-    lastScrollTop = st;
-  }
+    // A really lightweight plugin wrapper around the constructor,
+    // preventing against multiple instantiations
+    $.fn[pluginName] = function ( options ) {
+        var args = arguments;
 
-  function pushHeader(push) {
-    // First we need to push the header out of the way
+        if (options === undefined || typeof options === 'object') {
+            return this.each(function () {
 
-    // Position of the push element relative to window top
-    var pushOffset = push.offset().top;
-    var pushTop = pushOffset - $(window).scrollTop();
-    
+                if (!$.data(this, 'plugin_' + pluginName)) {
+                    $.data(this, 'plugin_' + pluginName, new Plugin( this, options ));
+                }
+            });
 
-    // All 3 cases: currently being pushed, fully pushed, and not pushed
-    if(pushTop <= navbarHeight && pushTop > 0) {
-      self.css('top', pushTop - navbarHeight + 'px');
-      self.addClass('pushed');
-      self.removeClass('retracted');
-    } else if(pushTop <= 0) {
-      self.css('top', -navbarHeight + 'px');
-      self.addClass('retracted');
-    } else if(pushTop > navbarHeight) {
-      self.css('top', '0px');
-      self.removeClass('pushed');
-      self.removeClass('extend');
-    }
-  }
-};
+        } else if (typeof options === 'string' && options[0] !== '_' && options !== 'init') {
+
+            var returns;
+
+            this.each(function () {
+                var instance = $.data(this, 'plugin_' + pluginName);
+
+                if (instance instanceof Plugin && typeof instance[options] === 'function') {
+                    returns = instance[options].apply( instance, Array.prototype.slice.call( args, 1 ) );
+                }
+
+                if (options === 'destroy') {
+                  $.data(this, 'plugin_' + pluginName, null);
+                }
+            });
+
+            return returns !== undefined ? returns : this;
+        }
+    };
+
+})( jQuery, window, document );

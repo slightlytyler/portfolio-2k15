@@ -12,9 +12,11 @@ $(function() {
           // Lock scrolling
           $('body').addClass('scroll-lock');
 
-          // Extend Nav
-          $('nav.main').removeClass('retracted');
-          $('nav.main').addClass('extended');
+          // Change cursor to reflect loading
+          $body.css('cursor', 'wait');
+          $body.find('a').css('cursor', 'wait');
+
+          pageExit();
 
           // Get selected anchor
           var $directory = url.replace(/https?:\/\/[^\/]+/i, "");
@@ -54,10 +56,6 @@ $(function() {
 
           // Add in-progress class to exiting content
           $("#exiting-content").addClass('in-progress');
-
-          // Change cursor to reflect loading
-          $body.css('cursor', 'wait');
-          $body.find('a').css('cursor', 'wait');
         }
       },
       onEnd: {

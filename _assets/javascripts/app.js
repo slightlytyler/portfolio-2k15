@@ -23,4 +23,5 @@
 //
 // Global
 //= require custom/page-load
+//= require custom/page-exit
 //= require custom/smooth-state
