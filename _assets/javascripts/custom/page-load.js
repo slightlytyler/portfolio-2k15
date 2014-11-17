@@ -6,7 +6,10 @@ function pageLoad(_callback) {
   $('nav.main').stickyHeader({
     pushElement: '#current-content #nav-push'
   });
-  $('#current-content .blur-fade').blurFade('#blur-container');
+  
+  $('#current-content .blur-fade').blurFade({
+    innerContainer: '#blur-container'
+  });
 
   if (typeof _callback === "undefined" || _callback === null) {
     console.log('No callback on pageLoad, proceeding');

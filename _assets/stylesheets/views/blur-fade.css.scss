@@ -1,5 +1,6 @@
 .blur-fade {
   position: fixed;
+  transition: background-color .3s ease-out;
 
   &:after {
     content: '';
@@ -16,4 +17,12 @@
 
     background-color: inherit;
   }
+
+  &.force-fade {
+    background-color: rgba(0,0,0,.65) !important;
+
+    #blur-container { filter: blur(4px); }
+  }
+
+  #blur-container { transition: filter .3s ease-out; }
 }

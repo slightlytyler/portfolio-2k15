@@ -6,7 +6,7 @@
 ;(function ( $, window, document, undefined ) {
 
     var pluginName = "stickyHeader",
-        defaults = {
+      defaults = {
         pushElement: "#nav-push"
       };
 
@@ -17,8 +17,6 @@
         this._name = pluginName;
         this.init();
     }
-
-    var $this = this;
 
     $.extend(Plugin.prototype, {
         init: function () {
