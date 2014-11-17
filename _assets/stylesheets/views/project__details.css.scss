@@ -46,7 +46,87 @@
       }
     }
 
+    .case-study {
+
+    }
+
+    .stats {
+      @include window-margin($window-margin);
+      padding: {
+        top: 2.6667rem;
+        bottom: 1rem;
+      }
+      border-bottom: 1px solid $blue;
+
+      &, div { @extend %clearfix; }
+
+      div:not(:last-child) { 
+        border-bottom: 1px solid $grey-light; 
+        margin-bottom: 2rem;
+
+      }
+
+      dl { @include column(3/5); }
+
+      dt, dd{ display: inline-block; }
+
+      dt {
+        @include column(2/5);
+        @extend %ui-label;
+      }
+
+      dd {
+        @include column(3/5);
+        @extend %ui-details;
+      }
+
+      ul {
+        @extend %clear-list;
+        margin-bottom: .8333rem;
+      }
+
+      li{
+        position: relative;
+
+        &:before { 
+          content: "› \0020"; 
+          font-weight: 100;
+
+          position: absolute;
+          left: -1.4rem;
+          top: 0;
+
+          line-height: 1.4rem;
+          font-size: 200%;
+        }
+      }
+    }
+
     .preview {
-      background-image: image-url("base/devices/phone--outline.svg");
+      @include column(2/5);
+      position: relative;
+
+      .phone {
+        background-image: image-url("base/devices/phone-outline--dark.svg");
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        width: 100%;
+        height: 0;
+        padding-bottom: 209.375%;
+
+        position: relative;
+      }
+
+      .screen {
+        width: 82.2917%;
+        height: 70.1493%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-top: .7%;
+        margin-left: .5%;
+        transform: translate(-50%, -50%);
+      }
     }
   }

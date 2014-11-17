@@ -1,4 +1,4 @@
-class PortfolioImageTag < Liquid::Tag
+class PortfolioBannerTag < Liquid::Tag
     def initialize(tag_name, markup, tokens)
         @markup = markup
         super
@@ -18,4 +18,4 @@ class PortfolioImageTag < Liquid::Tag
 end
 
 
-Liquid::Template.register_tag "portfolio_img", PortfolioImageTag
+Liquid::Template.register_tag "portfolio_banner", PortfolioBannerTag

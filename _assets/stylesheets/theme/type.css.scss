@@ -49,6 +49,21 @@ h4 {
 }
 
 
+// UI Type
+%ui-label {
+  font-family: $ui-font-family;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+%ui-details {
+  font-family: $ui-font-family;
+  font-style: italic;
+  color: $grey;
+  font-size: .8333rem;
+}
+
+
 // Various type elements
 span.portfolio__tags {
   color: $grey; 

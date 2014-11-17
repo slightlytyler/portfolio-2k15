@@ -29,7 +29,7 @@ layout: default
   {% for piece in portfolio %}
     <li>
     <a href="{{ piece.url }}" data-page-trans="page-trans--portfolio" data-page-trans-function="portfolioList" data-smooth-select-target="parent">
-      <img class="background" style="background-image: url({% portfolio_img piece.title %})" />
+      <img class="background" style="background-image: url({% portfolio_banner piece.title %})" />
       <div class="info-container">
         <h2>{{ piece.title }}</h2>
         <span class="portfolio__tags">{% for tag in piece.tags %}{{ tag }}{% if forloop.last == false %} &amp; {% endif %}{% endfor %}</span>
