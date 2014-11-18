@@ -85,9 +85,14 @@ layout: default
         neque vel magna. Integer vel luctus mauris.</p>
         <p>Aenean nunc nisi, efficitur eu malesuada ac, placerat in felis. Nulla at massa tempor, porta arcu et, 
         interdum tortor. Nulla eget tortor porttitor, molestie neque eu, sollicitudin tortor.</p>
-      </section>
 
-      <a class="live-site" href="{{ page.url }}">Live Site</a>
+        <a class="live-site" href="{{ page.url }}">Live Site</a>
+
+        <div class="pagination">
+          <a rel="previous project">{% image base/icons/caret--left.svg %}<span>Previous Project<span></a>
+          <a rel="next project"><span>Next Project<span>{% image base/icons/caret--right.svg %}</a>
+        </div>
+      </section>
   
     </div>
   </section>

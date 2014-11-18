@@ -11,7 +11,7 @@ class PortfolioPreviewTag < Liquid::Tag
             @myvalue = to_slug(@myvalue)
         end
 
-        asset = site.asset_path "portfolio/#{@myvalue}/#{@myvalue}__preview--small.jpg"
+        asset = site.asset_path "portfolio/#{@myvalue}/#{@myvalue}__preview--medium.jpg"
 
         "#{asset}"
     end
