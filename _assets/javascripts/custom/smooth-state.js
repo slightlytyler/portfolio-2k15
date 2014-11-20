@@ -102,7 +102,7 @@ $(function() {
   
     // Header is outsite our container so we need to load those manually
     // In addition we will use this space to set animation classes
-    $('header a').bind('click',function(e){
+    $('header a:not(#drawer-toggle)').bind('click',function(e){
       e.preventDefault();
       var self = $(this);
 

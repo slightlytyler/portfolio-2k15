@@ -3,7 +3,10 @@ html, body{
   padding: 0;
 }
 
-body.scroll-lock { overflow: hidden; }
+body.scroll-lock { 
+  overflow: hidden; 
+  height: 100vh;
+}
 
 * {
   box-sizing: border-box;

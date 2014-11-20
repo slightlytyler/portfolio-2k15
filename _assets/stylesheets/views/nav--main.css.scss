@@ -22,27 +22,30 @@ nav.main {
 
   div.container {
     @include outer-container($outer-width);
-
-    display: flex;
-    flex-flow: row, nowrap;
-    justify-content: space-between;
   }
 
   a {
-    margin-top: $nav-main--height / 2;
+    position: absolute;
+    top: 50%;
     transform: translateY(-50%);
   }
 
   a.drawer--icon {
     height: 1.75rem;
+    left: 1.6667rem;;
   }
 
   a.logo {
     height: 2.8333rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 
-  a.contact-icon{
+  a.contact-icon {
     height: 1.8333rem;
+    right: 1.6667rem;
+
+    transition: opacity .1s ease-out .05s;
   }
 
 }

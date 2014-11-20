@@ -1,0 +1,19 @@
+nav.drawer {
+  background-color: rgba($eggshell, .91);
+
+  box-shadow: 0 0 0 1px rgba(0,0,0,.3);
+  box-shadow: 0 22px 70px 4px rgba(0,0,0,.56);
+}
+
+#drawer-toggle {
+  transition: left .15s ease-out;
+
+  &.open {
+    left: calc(75% + 1.6667rem);
+
+    ~ a.contact-icon { 
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+}

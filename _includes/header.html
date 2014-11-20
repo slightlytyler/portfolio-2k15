@@ -1,7 +1,7 @@
 <header>
   <nav class="main">
     <div class="container">
-      <a class="drawer--icon">
+      <a id="drawer-toggle" class="drawer--icon" href="#sidr">
         {% image base/icons/drawer--icon.svg %}
       </a>
       <a href="/" class="logo" data-page-trans="page-trans--slide" data-smooth-select-target="self">
@@ -13,8 +13,8 @@
     </div>
   </nav>
 
-  <nav class="drawer">
-    <ul style="display: none;" class="drawer--list">
+  <nav id="sidr" class="drawer">
+    <ul class="drawer--list">
       <li>About Me</li>
       <li>Contact</li>
       <li>Colophon</li>

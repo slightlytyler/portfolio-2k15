@@ -23,6 +23,7 @@
 //
 //
 // Global
+//= require custom/init
 //= require custom/page-load
 //= require custom/page-exit
 //= require custom/smooth-state
