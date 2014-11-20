@@ -1,23 +1,23 @@
 <header>
   <nav class="main">
     <div class="container">
-      <a id="drawer-toggle" class="drawer--icon" href="#sidr">
+      <a id="drawer-toggle" class="drawer__icon" href="#drawer">
         {% image base/icons/drawer--icon.svg %}
       </a>
       <a href="/" class="logo" data-page-trans="page-trans--slide" data-smooth-select-target="self">
         {% image slightly/slightly--logo.png %}
       </a>
-      <a class="contact-icon">
+      <a class="contact__icon">
         {% image base/icons/contact--icon.svg %}
       </a>
     </div>
   </nav>
 
-  <nav id="sidr" class="drawer">
-    <ul class="drawer--list">
-      <li>About Me</li>
-      <li>Contact</li>
-      <li>Colophon</li>
+  <nav id="drawer" class="drawer">
+    <ul class="drawer__list">
+      <li>About Me {% image base/icons/caret--right.svg %}</li>
+      <li>Contact {% image base/icons/caret--right.svg %}</li>
+      <li>Colophon {% image base/icons/caret--right.svg %}</li>
     </ul>
   </nav>
 </header>

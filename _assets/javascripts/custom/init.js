@@ -1,5 +1,7 @@
 $(function() {
     $('#drawer-toggle').sidr({
+      name: 'drawer',
+      body: '#current-content',
       displace: false,
       speed: 150,
       onOpen: function() {

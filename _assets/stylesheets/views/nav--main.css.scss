@@ -3,7 +3,7 @@ nav.main {
   top: 0;
   left: 0;
 
-  z-index: 4;
+  z-index: 100;
   
   $nav-main--height: 6.3333rem;
   width: 100%;
@@ -30,7 +30,7 @@ nav.main {
     transform: translateY(-50%);
   }
 
-  a.drawer--icon {
+  a.drawer__icon {
     height: 1.75rem;
     left: 1.6667rem;;
   }
@@ -41,7 +41,7 @@ nav.main {
     transform: translate(-50%, -50%);
   }
 
-  a.contact-icon {
+  a.contact__icon {
     height: 1.8333rem;
     right: 1.6667rem;
 

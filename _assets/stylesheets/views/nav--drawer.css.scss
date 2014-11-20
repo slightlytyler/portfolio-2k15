@@ -1,19 +1,61 @@
 nav.drawer {
-  background-color: rgba($eggshell, .91);
+  height: calc(100vh - 6.333rem);
+  top: initial;
+  bottom: 0;
 
-  box-shadow: 0 0 0 1px rgba(0,0,0,.3);
-  box-shadow: 0 22px 70px 4px rgba(0,0,0,.56);
+  color: $grey;
+  font-family: $ui-font-family;
+  font-size: 1.6666rem;
+  font-weight: 300;
+  line-height: 2.25rem;
+
+  padding: {
+    top: 1.25rem;
+    bottom: 1.25rem;
+    left: 1.6666rem;
+  }
+
+  background-color: $eggshell;
+  box-shadow: 0 0 0 1px rgba(0,0,0,.3), 0 22px 70px 4px rgba(0,0,0,.56);
 }
 
-#drawer-toggle {
-  transition: left .15s ease-out;
+ul.drawer__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 
-  &.open {
-    left: calc(75% + 1.6667rem);
+  li {
+    position: relative;
+    padding: {
+      bottom: 1.0833rem;
+      top: 1.25rem;
+    } 
 
-    ~ a.contact-icon { 
-      opacity: 0;
-      pointer-events: none;
+    border-bottom: 1px solid rgba(0,0,0,.15);
+    box-shadow: 0 1px 0 rgba(255,255,255,.35);
+
+    text-shadow: 0 1px 0 white;
+
+    &:hover {
+      color: $charcoal;
+
+      img {
+        right: 2rem;
+        opacity: 1;
+      }
+    }
+
+    img {
+      width: 2rem;
+
+      position: absolute;
+      top: calc(50% + .2rem);
+      right: 4rem;
+      transform: translate(50%,-50%);
+
+      opacity: .35;
+
+      transition: opacity .15s ease-in-out, right .15s ease-in-out;
     }
   }
 }
