@@ -49,11 +49,6 @@ $(function() {
       onProgress: {
         duration: 0,
         render: function (url, $container) {
-          // Scroll top
-          $body.animate({
-            scrollTop: 0
-          });
-
           // Add in-progress class to exiting content
           $("#exiting-content").addClass('in-progress');
         }
@@ -68,19 +63,19 @@ $(function() {
           // Add current content
           $container.html($content);
 
-          // Scroll top
-          $body.animate({
-            scrollTop: 0
-          });
-
           // Refire page javascript
           pageLoad(function() {
             // Remove in-progress class to exiting content
             $("#exiting-content").removeClass('in-progress');
 
-            // Add exiting animation class to exiting content
-            $('#current-content').addClass('is-entering');
-            $('#exiting-content').addClass('is-exiting');
+            var offset = -($(window).scrollTop());  // Get current scroll position
+            $('#exiting-content .scene-element').css('top', offset);  // Offset top of exiting content by scroll position
+
+            $('#exiting-content').addClass('is-exiting'); // Add exiting class
+
+            $(window).scrollTop(0); // Scroll top
+
+            $('#current-content').addClass('is-entering');  // Add entering class
           });
         }
       },
