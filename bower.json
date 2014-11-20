@@ -70,6 +70,13 @@
             "_bower_components/scrollmagic/js/jquery.scrollmagic.debug.js": "scrollmagic-debug.js"
           }
         ]
+      },
+      "sidr": {
+        "mapping": [
+          {
+            "_bower_components/sidr/jquery.sidr.min.js": "sidr.js"
+          }
+        ]
       }
     }
   },
@@ -88,6 +95,7 @@
     "smoothstate": "~0.5.1",
     "fastclick": "~1.0.3",
     "ScrollMagic": "~1.2.3",
-    "gsap": "~1.14.2"
+    "gsap": "~1.14.2",
+    "sidr": "~1.2.1"
   }
 }

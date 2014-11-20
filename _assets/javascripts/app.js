@@ -4,6 +4,7 @@
 //= require bower/gsap/gsap-TweenMax
 //= require bower/ScrollMagic/scrollmagic
 //= require bower/ScrollMagic/scrollmagic-debug
+//= require bower/sidr/sidr
 //
 // Custom
 //
