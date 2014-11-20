@@ -1,0 +1,10 @@
+_site
+
+.sass-cache
+.jekyll-assets-cache
+
+_bower_components
+_assets/images/processed
+
+.ruby-gemset
+.ruby-version

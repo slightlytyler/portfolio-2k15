@@ -1,0 +1,101 @@
+{
+  "name": "portfolio-2k15",
+  "version": "0.0.0",
+  "authors": [
+    "Tyler Martinez <slightlytyler@gmail.com>"
+  ],
+  "description": "bower file for the portfolio of Tyler Martinez (portfolio-2k15)",
+  "license": "MIT",
+  "private": true,
+  "install": {
+    "path": {
+      "css": "_assets/stylesheets/bower",
+      "scss": "_assets/stylesheets/bower",
+      "js": "_assets/javascripts/bower",
+      "png": "_assets/images/bower",
+      "jpg": "_assets/images/bower",
+      "gif": "_assets/images/bower"
+    },
+    "sources": {
+      "jquery": {
+        "mapping": [
+          {
+            "_bower_components/jquery/dist/jquery.js": "jquery.js"
+          }
+        ]
+      },
+      "jeet": {
+        "mapping": [
+          {
+            "_bower_components/jeet/scss/jeet/_functions.scss": "_functions.css.scss"
+          },
+          {
+            "_bower_components/jeet/scss/jeet/_grid.scss": "_grid.css.scss"
+          },
+          {
+            "_bower_components/jeet/scss/jeet/_settings.scss": "_settings.css.scss"
+          },
+          {
+            "_bower_components/jeet/scss/jeet/index.scss": "index.css.scss"
+          }
+        ]
+      },
+      "smoothstate": {
+        "mapping": [
+          {
+            "_bower_components/smoothstate/jquery.smoothstate.js": "smoothstate.js"
+          }
+        ]
+      },
+      "fastclick": {
+        "mapping": [
+          {
+            "_bower_components/fastclick/lib/fastclick.js": "fastclick.js"
+          }
+        ]
+      },
+      "gsap": {
+        "mapping": [
+          {
+            "_bower_components/gsap/src/minified/TweenMax.min.js": "gsap-TweenMax.js"
+          }
+        ]
+      },
+      "ScrollMagic": {
+        "mapping": [
+          {
+            "_bower_components/scrollmagic/js/jquery.scrollmagic.min.js": "scrollmagic.js"
+          },
+          {
+            "_bower_components/scrollmagic/js/jquery.scrollmagic.debug.js": "scrollmagic-debug.js"
+          }
+        ]
+      },
+      "sidr": {
+        "mapping": [
+          {
+            "_bower_components/sidr/jquery.sidr.min.js": "sidr.js"
+          }
+        ]
+      }
+    }
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "1.11.1",
+    "typeplate-starter-kit": "~1.1.4",
+    "jeet": "~6.1.2",
+    "smoothstate": "~0.5.1",
+    "fastclick": "~1.0.3",
+    "ScrollMagic": "~1.2.3",
+    "gsap": "~1.14.2",
+    "sidr": "~1.2.1"
+  }
+}
