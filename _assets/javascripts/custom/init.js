@@ -11,6 +11,9 @@ $(function() {
         // Add open classes
         $('#drawer-toggle').addClass('open');
         $('.drawer').addClass('open');
+
+        // Extend Nav
+        $('nav.main').addClass('extend');
       },
       onClose: function() {
         // Unlock Scrolling
@@ -20,5 +23,12 @@ $(function() {
         $('#drawer-toggle').removeClass('open');
         $('.drawer').removeClass('open');
       }
-    })
+    });
+
+    $( "a:not(#drawer-toggle)" ).bind( "click", function() {
+      window.setTimeout(function(){
+        // Close the drawer
+        $.sidr('close', 'drawer');
+      }, 300);
+    });  
 });
